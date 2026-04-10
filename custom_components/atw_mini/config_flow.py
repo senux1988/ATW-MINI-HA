@@ -13,7 +13,13 @@ from homeassistant.data_entry_flow import FlowResult
 from homeassistant.helpers.aiohttp_client import async_get_clientsession
 
 from .api import AtwMiniApiClient, AtwMiniApiConnectionError, AtwMiniApiParseError
-from .const import CONF_SCAN_INTERVAL, DEFAULT_NAME, DEFAULT_SCAN_INTERVAL, DOMAIN
+from .const import (
+    CONF_DEFAULT_USERNAME,
+    CONF_SCAN_INTERVAL,
+    DEFAULT_NAME,
+    DEFAULT_SCAN_INTERVAL,
+    DOMAIN,
+)
 
 
 class AtwMiniConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
@@ -51,8 +57,8 @@ class AtwMiniConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
                         CONF_HOST: user_input[CONF_HOST],
                         CONF_USERNAME: user_input[CONF_USERNAME],
                         CONF_PASSWORD: user_input[CONF_PASSWORD],
+                        CONF_SCAN_INTERVAL: user_input[CONF_SCAN_INTERVAL],
                     },
-                    options={CONF_SCAN_INTERVAL: user_input[CONF_SCAN_INTERVAL]},
                 )
 
         return self.async_show_form(
@@ -61,7 +67,7 @@ class AtwMiniConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
                 {
                     vol.Required(CONF_NAME, default=DEFAULT_NAME): str,
                     vol.Required(CONF_HOST): str,
-                    vol.Required(CONF_USERNAME, default="admin"): str,
+                    vol.Required(CONF_USERNAME, default=CONF_DEFAULT_USERNAME): str,
                     vol.Required(CONF_PASSWORD): str,
                     vol.Required(
                         CONF_SCAN_INTERVAL, default=DEFAULT_SCAN_INTERVAL
@@ -96,7 +102,10 @@ class AtwMiniOptionsFlow(config_entries.OptionsFlow):
                     vol.Required(
                         CONF_SCAN_INTERVAL,
                         default=self.config_entry.options.get(
-                            CONF_SCAN_INTERVAL, DEFAULT_SCAN_INTERVAL
+                            CONF_SCAN_INTERVAL,
+                            self.config_entry.data.get(
+                                CONF_SCAN_INTERVAL, DEFAULT_SCAN_INTERVAL
+                            ),
                         ),
                     ): vol.All(vol.Coerce(int), vol.Range(min=10, max=3600)),
                 }

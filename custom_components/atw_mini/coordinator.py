@@ -33,7 +33,10 @@ class AtwMiniDataUpdateCoordinator(DataUpdateCoordinator[AtwMiniStatus]):
         )
 
         update_interval = timedelta(
-            seconds=entry.options.get(CONF_SCAN_INTERVAL, DEFAULT_SCAN_INTERVAL)
+            seconds=entry.options.get(
+                CONF_SCAN_INTERVAL,
+                entry.data.get(CONF_SCAN_INTERVAL, DEFAULT_SCAN_INTERVAL),
+            )
         )
 
         super().__init__(

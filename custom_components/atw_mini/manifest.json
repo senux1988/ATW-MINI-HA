@@ -2,15 +2,14 @@
   "domain": "atw_mini",
   "name": "ATW MINI",
   "codeowners": [
-    "@pglemba"
+    "@senux1988"
   ],
   "config_flow": true,
   "dependencies": [],
-  "documentation": "https://github.com/pglemba/atw-mini-ha",
+  "documentation": "https://github.com/senux1988/ATW-MINI-HA",
   "integration_type": "device",
   "iot_class": "local_polling",
-  "issue_tracker": "https://github.com/pglemba/atw-mini-ha/issues",
+  "issue_tracker": "https://github.com/senux1988/ATW-MINI-HA/issues",
   "requirements": [],
   "version": "0.1.0"
 }
-
