@@ -1,0 +1,12 @@
+.DS_Store
+*.swp
+*.swo
+*.textClipping
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.venv/
+venv/
+inputs/

@@ -1,0 +1,36 @@
+name: Bug report
+description: Report a problem with the integration
+title: "[Bug]: "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting a bug. Please include enough detail to reproduce the issue safely.
+  - type: input
+    id: integration_version
+    attributes:
+      label: Integration version
+      placeholder: 0.1.0
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: What happened?
+      description: Describe the actual behavior and the expected behavior.
+    validations:
+      required: true
+  - type: textarea
+    id: xml_sample
+    attributes:
+      label: Sanitized XML sample
+      description: Remove any private IPs, usernames, or passwords before pasting.
+      render: xml
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant logs
+      render: text
+
