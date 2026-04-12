@@ -4,6 +4,20 @@ All notable changes to this project will be documented in this file.
 
 The project follows Semantic Versioning.
 
+## [0.2.0] - 2026-04-12
+
+### Added
+
+- Support for reading `control.xml` alongside `status.xml`
+- Binary sensor for heat pump enabled state from `control.xml`
+- Enum sensor for heating versus cooling operation mode
+- Enum sensor for summer versus winter season mode
+
+### Changed
+
+- `st1` from `status.xml` remains modeled as operation state
+- Internal parsing now distinguishes `status.xml` and `control.xml` values to avoid key collisions
+
 ## [0.1.0] - 2026-04-12
 
 ### Added
@@ -15,8 +29,3 @@ The project follows Semantic Versioning.
 - Binary sensors for `st1` through `st5`
 - Diagnostics support with redacted sensitive fields
 - GitHub workflow, issue templates, documentation, and project icon
-
-### Changed
-
-- `st1` is now modeled as an operation state sensor instead of a binary sensor
-- Added derived `defrost` binary sensor based on `st1 == 4`

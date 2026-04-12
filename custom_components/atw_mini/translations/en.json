@@ -55,11 +55,28 @@
           "defrost": "Defrost"
         }
       },
+      "operation_mode": {
+        "name": "Operation mode",
+        "state": {
+          "heating": "Heating",
+          "cooling": "Cooling"
+        }
+      },
+      "season_mode": {
+        "name": "Season mode",
+        "state": {
+          "summer": "Summer",
+          "winter": "Winter"
+        }
+      },
       "device_time": {
         "name": "Device time"
       }
     },
     "binary_sensor": {
+      "heat_pump_enabled": {
+        "name": "Heat pump enabled"
+      },
       "defrost": {
         "name": "Defrost"
       },

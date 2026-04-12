@@ -26,40 +26,48 @@ class AtwMiniBinarySensorDescription(BinarySensorEntityDescription):
 
 BINARY_SENSOR_DESCRIPTIONS: tuple[AtwMiniBinarySensorDescription, ...] = (
     AtwMiniBinarySensorDescription(
+        key="heat_pump_enabled",
+        translation_key="heat_pump_enabled",
+        name="Heat pump enabled",
+        value_key="heat_pump_enabled",
+        raw_tag="control_st1",
+        icon="mdi:power",
+    ),
+    AtwMiniBinarySensorDescription(
         key="defrost",
         translation_key="defrost",
         name="Defrost",
-        value_key="st1",
-        raw_tag="st1",
+        value_key="operation_state",
+        raw_tag="status_st1",
         icon="mdi:snowflake-melt",
     ),
     AtwMiniBinarySensorDescription(
         key="status_2",
         translation_key="status_2",
         name="Status 2",
-        value_key="st2",
-        raw_tag="st2",
+        value_key="status_2",
+        raw_tag="status_st2",
     ),
     AtwMiniBinarySensorDescription(
         key="status_3",
         translation_key="status_3",
         name="Status 3",
-        value_key="st3",
-        raw_tag="st3",
+        value_key="status_3",
+        raw_tag="status_st3",
     ),
     AtwMiniBinarySensorDescription(
         key="status_4",
         translation_key="status_4",
         name="Status 4",
-        value_key="st4",
-        raw_tag="st4",
+        value_key="status_4",
+        raw_tag="status_st4",
     ),
     AtwMiniBinarySensorDescription(
         key="status_5",
         translation_key="status_5",
         name="Status 5",
-        value_key="st5",
-        raw_tag="st5",
+        value_key="status_5",
+        raw_tag="status_st5",
     ),
 )
 

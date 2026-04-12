@@ -19,8 +19,12 @@ Custom Home Assistant integration for the ATW MINI / NeoRe Mini heat pump using 
   - `rtcc`: device timestamp
   - `tep2`: indoor temperature
   - `tep3`: water target temperature
-  - `tep8`: outdoor temperature
-  - `pwr`: current heat pump output in percent
+- `tep8`: outdoor temperature
+- `pwr`: current heat pump output in percent
+- `control.xml` confirmed fields:
+  - `st1`: heat pump enabled (`1`) or disabled (`0`)
+  - `st2`: operation mode, heating (`1`) or cooling (`2`)
+  - `st3`: season mode, summer (`1`) or winter (`2`)
 
 Example XML:
 
@@ -62,7 +66,10 @@ Example XML:
 - `sensor.atw_mini_outdoor_temperature`
 - `sensor.atw_mini_power_level`
 - `sensor.atw_mini_operation_state`
+- `sensor.atw_mini_operation_mode`
+- `sensor.atw_mini_season_mode`
 - `sensor.atw_mini_device_time`
+- `binary_sensor.atw_mini_heat_pump_enabled`
 - `binary_sensor.atw_mini_defrost`
 - `binary_sensor.atw_mini_status_2`
 - `binary_sensor.atw_mini_status_3`
@@ -74,13 +81,14 @@ Example XML:
 - Real device IP addresses and credentials must never be committed.
 - `tep4` and `st2` through `st5` still need semantic mapping.
 - `st1` is mapped as an operation state sensor: `1 = normal_operation`, `4 = defrost`.
+- `control.xml` is now used as a second read-only endpoint for enabled state, heat/cool mode, and summer/winter mode.
 - Write/control endpoints are not yet identified, so the first version should remain read-only.
 - Project icon asset: `assets/atw-mini-icon.svg`
 
 ## Versioning
 
 - The integration version shown in Home Assistant comes from [manifest.json](/Users/peter.glemba/Documents/Projekty/ATW-MINI-HA/custom_components/atw_mini/manifest.json).
-- The current plugin version is `0.1.0`.
+- The current plugin version is `0.2.0`.
 - The project follows Semantic Versioning:
   - patch: bug fixes, docs, small compatibility fixes
   - minor: new entities, new features, backward-compatible improvements
