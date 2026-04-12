@@ -42,6 +42,7 @@ Example XML:
 
 ## Repository Contents
 
+- [CHANGELOG.md](/Users/peter.glemba/Documents/Projekty/ATW-MINI-HA/CHANGELOG.md) - release history and version notes
 - [docs/hacs-navrh.md](/Users/peter.glemba/Documents/Projekty/ATW-MINI-HA/docs/hacs-navrh.md) - detailed architecture and Home Assistant entity proposal
 - [docs/github-project-plan.md](/Users/peter.glemba/Documents/Projekty/ATW-MINI-HA/docs/github-project-plan.md) - recommended GitHub repository, issues, milestones, and project board setup
 - [tests/fixtures/status.xml](/Users/peter.glemba/Documents/Projekty/ATW-MINI-HA/tests/fixtures/status.xml) - sanitized sample XML fixture used for parser validation
@@ -73,3 +74,13 @@ Example XML:
 - `tep4` and `st1` through `st5` still need semantic mapping.
 - Write/control endpoints are not yet identified, so the first version should remain read-only.
 - Project icon asset: `assets/atw-mini-icon.svg`
+
+## Versioning
+
+- The integration version shown in Home Assistant comes from [manifest.json](/Users/peter.glemba/Documents/Projekty/ATW-MINI-HA/custom_components/atw_mini/manifest.json).
+- The current plugin version is `0.1.0`.
+- The project follows Semantic Versioning:
+  - patch: bug fixes, docs, small compatibility fixes
+  - minor: new entities, new features, backward-compatible improvements
+  - major: breaking changes to entity names, config, or behavior
+- For each public release, update the version in `manifest.json`, add an entry to [CHANGELOG.md](/Users/peter.glemba/Documents/Projekty/ATW-MINI-HA/CHANGELOG.md), create a Git tag, and publish a GitHub release.
