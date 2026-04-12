@@ -1,5 +1,7 @@
 # ATW MINI Home Assistant Integration
 
+![ATW MINI icon](assets/atw-mini-icon.svg)
+
 Custom Home Assistant integration for the ATW MINI / NeoRe Mini heat pump using local HTTP/XML communication.
 
 ## Status
@@ -70,3 +72,4 @@ Example XML:
 - Real device IP addresses and credentials must never be committed.
 - `tep4` and `st1` through `st5` still need semantic mapping.
 - Write/control endpoints are not yet identified, so the first version should remain read-only.
+- Project icon asset: `assets/atw-mini-icon.svg`
