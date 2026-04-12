@@ -9,7 +9,7 @@ Vytvorit custom integraciu pre Home Assistant, ktoru bude mozne instalovat cez H
 - rozumne mapovat XML polia na Home Assistant entity
 - byt pripravena na neskorsie doplnenie zapisovych funkcii, ak sa podari identifikovat API pre ovladanie
 
-Tento navrh je zalozeny na lokalnych zachytoch komunikacie zariadenia a na anonymizovanej XML fixture v [tests/fixtures/status.xml](/Users/peter.glemba/Documents/Projekty/ATW-MINI-HA/tests/fixtures/status.xml).
+Tento navrh je zalozeny na lokalnych zachytoch komunikacie zariadenia a na anonymizovanej XML fixture v [tests/fixtures/status.xml](../tests/fixtures/status.xml).
 
 ## 2. Zname vstupy
 
@@ -262,7 +262,7 @@ Minimalne:
 - `codeowners`
 - `iot_class: local_polling`
 
-Detailne GitHub projektove mapovanie je v [docs/github-project-plan.md](/Users/peter.glemba/Documents/Projekty/ATW-MINI-HA/docs/github-project-plan.md).
+Detailne GitHub projektove mapovanie je v [docs/github-project-plan.md](github-project-plan.md).
 
 ## 8. Navrh implementacnych faz
 

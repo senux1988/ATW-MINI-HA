@@ -4,7 +4,7 @@
 
 Custom Home Assistant integration for the ATW MINI / NeoRe Mini heat pump using local HTTP/XML/HTML communication.
 
-For the Slovak version, see [README.sk.md](/Users/peter.glemba/Documents/Projekty/ATW-MINI-HA/README.sk.md).
+For the Slovak version, see [README.sk.md](README.sk.md).
 
 ## Current Status
 
@@ -104,15 +104,15 @@ Recommended installation path:
 
 ## Repository Contents
 
-- [README.sk.md](/Users/peter.glemba/Documents/Projekty/ATW-MINI-HA/README.sk.md) - Slovak overview
-- [CHANGELOG.md](/Users/peter.glemba/Documents/Projekty/ATW-MINI-HA/CHANGELOG.md) - release history
-- [docs/hacs-navrh.md](/Users/peter.glemba/Documents/Projekty/ATW-MINI-HA/docs/hacs-navrh.md) - architecture notes
-- [docs/github-project-plan.md](/Users/peter.glemba/Documents/Projekty/ATW-MINI-HA/docs/github-project-plan.md) - GitHub project structure
-- [tests/fixtures](/Users/peter.glemba/Documents/Projekty/ATW-MINI-HA/tests/fixtures) - sanitized parser fixtures
+- [README.sk.md](README.sk.md) - Slovak overview
+- [CHANGELOG.md](CHANGELOG.md) - release history
+- [docs/hacs-navrh.md](docs/hacs-navrh.md) - architecture notes
+- [docs/github-project-plan.md](docs/github-project-plan.md) - GitHub project structure
+- [tests/fixtures](tests/fixtures) - sanitized parser fixtures
 
 ## Versioning
 
-The integration version shown in Home Assistant comes from [manifest.json](/Users/peter.glemba/Documents/Projekty/ATW-MINI-HA/custom_components/atw_mini/manifest.json).
+The integration version shown in Home Assistant comes from [manifest.json](custom_components/atw_mini/manifest.json).
 
 Versioning rules:
 - patch: fixes and small compatibility updates
@@ -121,7 +121,7 @@ Versioning rules:
 
 For every public release:
 - update `custom_components/atw_mini/manifest.json`
-- update [CHANGELOG.md](/Users/peter.glemba/Documents/Projekty/ATW-MINI-HA/CHANGELOG.md)
+- update [CHANGELOG.md](CHANGELOG.md)
 - create a Git tag
 - publish a GitHub release
 
@@ -131,4 +131,4 @@ For every public release:
 - raw local captures can stay local and out of Git
 - `tep4` and status bits `st2` through `st5` still need better semantic mapping
 - the repository icon asset is stored in `assets/atw-mini-icon.svg`
-
+- the Home Assistant UI tile icon is separate from the README image and usually requires Home Assistant branding assets to replace the default placeholder

@@ -4,7 +4,7 @@
 
 Vlastna integracia pre Home Assistant pre tepelne cerpadlo ATW MINI / NeoRe Mini s lokalnou HTTP/XML/HTML komunikaciou.
 
-Anglicka verzia je v [README.md](/Users/peter.glemba/Documents/Projekty/ATW-MINI-HA/README.md).
+Anglicka verzia je v [README.md](README.md).
 
 ## Aktualny Stav
 
@@ -103,15 +103,15 @@ Odporucany postup:
 
 ## Obsah Repozitara
 
-- [README.md](/Users/peter.glemba/Documents/Projekty/ATW-MINI-HA/README.md) - anglicka verzia
-- [CHANGELOG.md](/Users/peter.glemba/Documents/Projekty/ATW-MINI-HA/CHANGELOG.md) - historia verzii
-- [docs/hacs-navrh.md](/Users/peter.glemba/Documents/Projekty/ATW-MINI-HA/docs/hacs-navrh.md) - architektonicky navrh
-- [docs/github-project-plan.md](/Users/peter.glemba/Documents/Projekty/ATW-MINI-HA/docs/github-project-plan.md) - navrh GitHub projektu
-- [tests/fixtures](/Users/peter.glemba/Documents/Projekty/ATW-MINI-HA/tests/fixtures) - anonymizovane parser fixtures
+- [README.md](README.md) - anglicka verzia
+- [CHANGELOG.md](CHANGELOG.md) - historia verzii
+- [docs/hacs-navrh.md](docs/hacs-navrh.md) - architektonicky navrh
+- [docs/github-project-plan.md](docs/github-project-plan.md) - navrh GitHub projektu
+- [tests/fixtures](tests/fixtures) - anonymizovane parser fixtures
 
 ## Verzovanie
 
-Verzia, ktoru Home Assistant zobrazuje pri custom integracii, sa cita z [manifest.json](/Users/peter.glemba/Documents/Projekty/ATW-MINI-HA/custom_components/atw_mini/manifest.json).
+Verzia, ktoru Home Assistant zobrazuje pri custom integracii, sa cita z [manifest.json](custom_components/atw_mini/manifest.json).
 
 Pravidla verzovania:
 - patch: opravy a male kompatibilitne zmeny
@@ -120,7 +120,7 @@ Pravidla verzovania:
 
 Pre kazdy verejny release:
 - upravit `custom_components/atw_mini/manifest.json`
-- upravit [CHANGELOG.md](/Users/peter.glemba/Documents/Projekty/ATW-MINI-HA/CHANGELOG.md)
+- upravit [CHANGELOG.md](CHANGELOG.md)
 - vytvorit Git tag
 - publikovat GitHub release
 
@@ -130,3 +130,4 @@ Pre kazdy verejny release:
 - lokalne raw zachyty maju ostat mimo Git
 - `tep4` a status bity `st2` az `st5` este potrebuju lepsie semanticke mapovanie
 - asset ikony je ulozeny v `assets/atw-mini-icon.svg`
+- ikonka v Home Assistant UI nie je ta ista ako obrazok v README a na nahradenie default placeholdera zvycajne treba Home Assistant branding assety
