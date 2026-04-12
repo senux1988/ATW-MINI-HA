@@ -48,13 +48,20 @@
       "power_level": {
         "name": "Power level"
       },
+      "operation_state": {
+        "name": "Operation state",
+        "state": {
+          "normal_operation": "Normal operation",
+          "defrost": "Defrost"
+        }
+      },
       "device_time": {
         "name": "Device time"
       }
     },
     "binary_sensor": {
-      "status_1": {
-        "name": "Status 1"
+      "defrost": {
+        "name": "Defrost"
       },
       "status_2": {
         "name": "Status 2"
@@ -71,4 +78,3 @@
     }
   }
 }
-

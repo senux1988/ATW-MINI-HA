@@ -26,11 +26,12 @@ class AtwMiniBinarySensorDescription(BinarySensorEntityDescription):
 
 BINARY_SENSOR_DESCRIPTIONS: tuple[AtwMiniBinarySensorDescription, ...] = (
     AtwMiniBinarySensorDescription(
-        key="status_1",
-        translation_key="status_1",
-        name="Status 1",
+        key="defrost",
+        translation_key="defrost",
+        name="Defrost",
         value_key="st1",
         raw_tag="st1",
+        icon="mdi:snowflake-melt",
     ),
     AtwMiniBinarySensorDescription(
         key="status_2",
@@ -93,7 +94,10 @@ class AtwMiniBinarySensor(AtwMiniCoordinatorEntity, BinarySensorEntity):
         """Return the binary sensor state."""
         if self.coordinator.data is None:
             return None
-        return self.coordinator.data.values.get(self.entity_description.value_key)
+        value = self.coordinator.data.values.get(self.entity_description.value_key)
+        if self.entity_description.key == "defrost":
+            return value == "defrost"
+        return value
 
     @property
     def extra_state_attributes(self) -> dict[str, str | bool | None]:
@@ -101,5 +105,7 @@ class AtwMiniBinarySensor(AtwMiniCoordinatorEntity, BinarySensorEntity):
         return {
             "raw_tag": self.entity_description.raw_tag,
             "last_update_success": self.coordinator.last_update_success,
+            "raw_value": self.coordinator.data.raw.get(self.entity_description.raw_tag)
+            if self.coordinator.data
+            else None,
         }
-

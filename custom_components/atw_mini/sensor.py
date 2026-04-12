@@ -83,6 +83,16 @@ SENSOR_DESCRIPTIONS: tuple[AtwMiniSensorDescription, ...] = (
         state_class=SensorStateClass.MEASUREMENT,
     ),
     AtwMiniSensorDescription(
+        key="operation_state",
+        translation_key="operation_state",
+        name="Operation state",
+        value_key="st1",
+        raw_tag="st1",
+        icon="mdi:heat-pump",
+        device_class=SensorDeviceClass.ENUM,
+        options=["normal_operation", "defrost"],
+    ),
+    AtwMiniSensorDescription(
         key="device_time",
         translation_key="device_time",
         name="Device time",
@@ -133,4 +143,7 @@ class AtwMiniSensor(AtwMiniCoordinatorEntity, SensorEntity):
         return {
             "raw_tag": self.entity_description.raw_tag,
             "last_update_success": self.coordinator.last_update_success,
+            "raw_value": self.coordinator.data.raw.get(self.entity_description.raw_tag)
+            if self.coordinator.data
+            else None,
         }

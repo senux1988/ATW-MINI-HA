@@ -61,8 +61,9 @@ Example XML:
 - `sensor.atw_mini_temperature_4`
 - `sensor.atw_mini_outdoor_temperature`
 - `sensor.atw_mini_power_level`
+- `sensor.atw_mini_operation_state`
 - `sensor.atw_mini_device_time`
-- `binary_sensor.atw_mini_status_1`
+- `binary_sensor.atw_mini_defrost`
 - `binary_sensor.atw_mini_status_2`
 - `binary_sensor.atw_mini_status_3`
 - `binary_sensor.atw_mini_status_4`
@@ -71,7 +72,8 @@ Example XML:
 ## Notes
 
 - Real device IP addresses and credentials must never be committed.
-- `tep4` and `st1` through `st5` still need semantic mapping.
+- `tep4` and `st2` through `st5` still need semantic mapping.
+- `st1` is mapped as an operation state sensor: `1 = normal_operation`, `4 = defrost`.
 - Write/control endpoints are not yet identified, so the first version should remain read-only.
 - Project icon asset: `assets/atw-mini-icon.svg`
 

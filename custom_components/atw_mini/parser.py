@@ -12,6 +12,12 @@ class AtwMiniParseError(Exception):
     """Raised when the XML payload cannot be parsed."""
 
 
+ST1_STATE_MAP: dict[str, str] = {
+    "1": "normal_operation",
+    "4": "defrost",
+}
+
+
 @dataclass(slots=True)
 class AtwMiniStatus:
     """Normalized status payload returned by the heat pump."""
@@ -39,6 +45,8 @@ def parse_status_xml(xml_text: str) -> AtwMiniStatus:
 
         if child.tag == "rtcc":
             values[child.tag] = raw_value
+        elif child.tag == "st1":
+            values[child.tag] = _parse_st1_state(raw_value)
         elif child.tag.startswith("tep"):
             values[child.tag] = _parse_temperature(raw_value)
         elif child.tag == "pwr":
@@ -66,3 +74,7 @@ def _parse_percentage(value: str) -> int | None:
         return None
     return int(match.group(0))
 
+
+def _parse_st1_state(value: str) -> str:
+    """Map st1 raw values to a stable operation state."""
+    return ST1_STATE_MAP.get(value, f"unknown_{value}")

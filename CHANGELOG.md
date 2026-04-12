@@ -16,3 +16,7 @@ The project follows Semantic Versioning.
 - Diagnostics support with redacted sensitive fields
 - GitHub workflow, issue templates, documentation, and project icon
 
+### Changed
+
+- `st1` is now modeled as an operation state sensor instead of a binary sensor
+- Added derived `defrost` binary sensor based on `st1 == 4`

@@ -24,5 +24,5 @@ def test_parse_status_xml() -> None:
     assert status.values["tep4"] == 0.0
     assert status.values["tep8"] == 3.2
     assert status.values["pwr"] == 73
-    assert status.values["st1"] is True
+    assert status.values["st1"] == "normal_operation"
     assert status.values["st3"] is False
