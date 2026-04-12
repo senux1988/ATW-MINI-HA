@@ -4,6 +4,20 @@ All notable changes to this project will be documented in this file.
 
 The project follows Semantic Versioning.
 
+## [0.3.0] - 2026-04-12
+
+### Added
+
+- Read-only parsing for `parameters.htm`
+- Read-only parsing for `about.htm`
+- Read-only parsing for `about.xml`
+- New grouped parameter and device-info sensors based on those sources
+
+### Changed
+
+- Internal data model now stores structured parameter records and device metadata
+- The integration now reads five sources: `status.xml`, `control.xml`, `parameters.htm`, `about.htm`, and `about.xml`
+
 ## [0.2.0] - 2026-04-12
 
 ### Added

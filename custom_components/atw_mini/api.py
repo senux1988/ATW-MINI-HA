@@ -9,6 +9,9 @@ from .parser import (
     AtwMiniParseError,
     AtwMiniStatus,
     merge_status_data,
+    parse_about_html,
+    parse_about_xml,
+    parse_parameters_html,
     parse_control_xml,
     parse_status_xml,
 )
@@ -53,20 +56,44 @@ class AtwMiniApiClient:
         """Return the device control endpoint."""
         return f"http://{self._host}/control.xml"
 
+    @property
+    def parameters_url(self) -> str:
+        """Return the device parameters endpoint."""
+        return f"http://{self._host}/parameters.htm"
+
+    @property
+    def about_url(self) -> str:
+        """Return the device about page."""
+        return f"http://{self._host}/about.htm"
+
+    @property
+    def about_xml_url(self) -> str:
+        """Return the device about XML endpoint."""
+        return f"http://{self._host}/about.xml"
+
     async def async_get_status(self) -> AtwMiniStatus:
-        """Fetch and parse device XML endpoints."""
+        """Fetch and parse device XML and HTML endpoints."""
         try:
             status_payload = await self._async_fetch_xml(self.status_url)
             control_payload = await self._async_fetch_xml(self.control_url)
+            parameters_payload = await self._async_fetch_xml(self.parameters_url)
+            about_payload = await self._async_fetch_xml(self.about_url)
+            about_xml_payload = await self._async_fetch_xml(self.about_xml_url)
         except ClientError as err:
-            raise AtwMiniApiConnectionError("Unable to fetch device XML") from err
+            raise AtwMiniApiConnectionError("Unable to fetch device data") from err
 
         try:
             status_text = status_payload.decode("windows-1250", errors="replace")
             control_text = control_payload.decode("windows-1250", errors="replace")
+            parameters_text = parameters_payload.decode("windows-1250", errors="replace")
+            about_text = about_payload.decode("windows-1250", errors="replace")
+            about_xml_text = about_xml_payload.decode("windows-1250", errors="replace")
             return merge_status_data(
                 parse_status_xml(status_text),
                 parse_control_xml(control_text),
+                parse_parameters_html(parameters_text),
+                parse_about_html(about_text),
+                parse_about_xml(about_xml_text),
             )
         except UnicodeDecodeError as err:
             raise AtwMiniApiParseError("Unable to decode device response") from err

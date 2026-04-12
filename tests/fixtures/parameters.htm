@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="windows-1250">
+<title>ATW mini</title>
+</head>
+<body>
+<div class="cnt">
+ <div class="w100 tep fl">
+  <div class="w72 fl">
+   <div class="w36 fl teppop">Mód V1</div>
+   <div class="w34 fr tepost" id="t0">166</div>
+  </div>
+  <div class="w28 fr"></div>
+ </div>
+</div>
+<div class="cnt">
+ <div class="w100 tep fl">
+  <div class="w72 fl">
+   <div class="w36 fl teppop">Min. tepl. výmenníka - chladenie</div>
+   <div class="w34 fr tepost" id="t1">7.0 °C</div>
+  </div>
+  <div class="w28 fr"></div>
+ </div>
+</div>
+<div class="cnt">
+ <div class="w100 tep fl">
+  <div class="w72 fl">
+   <div class="w36 fl teppop">Min. vnútorná teplota - chladenie</div>
+   <div class="w34 fr tepost" id="t3">10.0 °C</div>
+  </div>
+  <div class="w28 fr">
+   <button class="btrm" onmousedown="mbt(3,0,1);" onmouseup="clrtim();" onmouseout="clrtim();">-</button>
+   <button class="btrp" onmousedown="pbt(3,127,1);" onmouseup="clrtim();" onmouseout="clrtim();">+</button>
+  </div>
+ </div>
+</div>
+<div class="cnt">
+ <div class="w100 tep fl">
+  <div class="w72 fl">
+   <div class="w36 fl teppop">Max. vnútorná teplota - kúrenie</div>
+   <div class="w34 fr tepost" id="t4">27.5 °C</div>
+  </div>
+  <div class="w28 fr">
+   <button class="btrm" onmousedown="mbt(4,0,1);" onmouseup="clrtim();" onmouseout="clrtim();">-</button>
+   <button class="btrp" onmousedown="pbt(4,127,1);" onmouseup="clrtim();" onmouseout="clrtim();">+</button>
+  </div>
+ </div>
+</div>
+<div class="cnt">
+ <div class="w100 tep fl">
+  <div class="w72 fl">
+   <div class="w36 fl teppop">Regulačná konštanta</div>
+   <div class="w34 fr tepost" id="t5">12</div>
+  </div>
+  <div class="w28 fr">
+   <button class="btrm" onmousedown="mbt(5,1,0);" onmouseup="clrtim();" onmouseout="clrtim();">-</button>
+   <button class="btrp" onmousedown="pbt(5,30,0);" onmouseup="clrtim();" onmouseout="clrtim();">+</button>
+  </div>
+ </div>
+</div>
+<div class="cnt">
+ <div class="w100 tep fl">
+  <div class="w72 fl">
+   <div class="w36 fl teppop">Vykurovacia voda (vonk. -20°C)</div>
+   <div class="w34 fr tepost" id="t7">47.0 °C</div>
+  </div>
+  <div class="w28 fr">
+   <button class="btrm" onmousedown="mbt(7,0,1);" onmouseup="clrtim();" onmouseout="clrtim();">-</button>
+   <button class="btrp" onmousedown="pbt(7,127,1);" onmouseup="clrtim();" onmouseout="clrtim();">+</button>
+  </div>
+ </div>
+</div>
+<div class="cnt">
+ <div class="w100 tep fl">
+  <div class="w72 fl">
+   <div class="w36 fl teppop">Obmedzenie výkonu - kúrenie</div>
+   <div class="w34 fr tepost" id="t16">100 %</div>
+  </div>
+  <div class="w28 fr">
+   <button class="btrm" onmousedown="mbt(16,0,2);" onmouseup="clrtim();" onmouseout="clrtim();">-</button>
+   <button class="btrp" onmousedown="pbt(16,30,2);" onmouseup="clrtim();" onmouseout="clrtim();">+</button>
+  </div>
+ </div>
+</div>
+<div class="cnt">
+ <div class="w100 tep fl">
+  <div class="w72 fl">
+   <div class="w36 fl teppop">Časové obmedzenie - ohrev TÚV</div>
+   <div class="w34 fr tepost" id="t22">20 min</div>
+  </div>
+  <div class="w28 fr">
+   <button class="btrm" onmousedown="mbt(22,1,3);" onmouseup="clrtim();" onmouseout="clrtim();">-</button>
+   <button class="btrp" onmousedown="pbt(22,240,3);" onmouseup="clrtim();" onmouseout="clrtim();">+</button>
+  </div>
+ </div>
+</div>
+<form method="post" action="parameters.htm" name="config">
+<input type="hidden" name="p0" id="p0" value="166" />
+<input type="hidden" name="p1" id="p1" value="14" />
+<input type="hidden" name="p3" id="p3" value="20" />
+<input type="hidden" name="p4" id="p4" value="55" />
+<input type="hidden" name="p5" id="p5" value="12" />
+<input type="hidden" name="p7" id="p7" value="94" />
+<input type="hidden" name="p16" id="p16" value="30" />
+<input type="hidden" name="p22" id="p22" value="20" />
+</form>
+</body>
+</html>
+
