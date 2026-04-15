@@ -32,6 +32,7 @@ def test_parse_status_xml() -> None:
     assert status.values["tep8"] == 3.2
     assert status.values["power_level"] == 73
     assert status.values["operation_state"] == "normal_operation"
+    assert status.values["heat_pump_running"] is True
     assert status.values["status_3"] is False
 
 
@@ -50,6 +51,7 @@ def test_merge_status_data() -> None:
     merged = merge_status_data(parse_status_xml(status_xml), parse_control_xml(control_xml))
 
     assert merged.values["operation_state"] == "normal_operation"
+    assert merged.values["heat_pump_running"] is True
     assert merged.values["heat_pump_enabled"] is True
     assert merged.values["operation_mode"] == "heating"
     assert merged.values["season_mode"] == "winter"
@@ -105,6 +107,7 @@ def test_merge_all_sources() -> None:
     )
 
     assert merged.values["operation_state"] == "normal_operation"
+    assert merged.values["heat_pump_running"] is True
     assert merged.values["unit_type"] == "W32"
     assert merged.values["heating_curve_minus_20"] == 47.0
     assert merged.values["dhw_time_limit"] == 20

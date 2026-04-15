@@ -52,8 +52,9 @@ Authentication and transport:
   - `summer`
   - `winter`
 - heat pump enabled / disabled
+- heat pump running / not running
 - defrost binary state
-- additional raw status flags `st2` through `st5`
+- additional raw status flags `st3` through `st5`
 
 ### Device Info
 
@@ -130,5 +131,7 @@ For every public release:
 - real device IP addresses and credentials must never be committed
 - raw local captures can stay local and out of Git
 - `tep4` and status bits `st2` through `st5` still need better semantic mapping
+- `status.xml st2` is now mapped as `heat_pump_running`
+- `tep4` and status bits `st3` through `st5` still need better semantic mapping
 - the repository icon asset is stored in `assets/atw-mini-icon.svg`
 - the Home Assistant UI tile icon is separate from the README image and usually requires Home Assistant branding assets to replace the default placeholder

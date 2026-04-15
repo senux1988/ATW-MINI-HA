@@ -17,6 +17,7 @@ The project follows Semantic Versioning.
 
 - Internal data model now stores structured parameter records and device metadata
 - The integration now reads five sources: `status.xml`, `control.xml`, `parameters.htm`, `about.htm`, and `about.xml`
+- `status.xml st2` is now modeled as `heat_pump_running`
 
 ## [0.2.0] - 2026-04-12
 

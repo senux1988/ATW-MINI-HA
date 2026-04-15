@@ -42,11 +42,12 @@ BINARY_SENSOR_DESCRIPTIONS: tuple[AtwMiniBinarySensorDescription, ...] = (
         icon="mdi:snowflake-melt",
     ),
     AtwMiniBinarySensorDescription(
-        key="status_2",
-        translation_key="status_2",
-        name="Status 2",
-        value_key="status_2",
+        key="heat_pump_running",
+        translation_key="heat_pump_running",
+        name="Heat pump running",
+        value_key="heat_pump_running",
         raw_tag="status_st2",
+        icon="mdi:fan",
     ),
     AtwMiniBinarySensorDescription(
         key="status_3",

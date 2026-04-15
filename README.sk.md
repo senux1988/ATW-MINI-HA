@@ -52,8 +52,9 @@ Komunikacia:
   - `summer`
   - `winter`
 - zapnute / vypnute tepelne cerpadlo
+- realne bezi / nebezi tepelne cerpadlo
 - binary stav rozmrazovania
-- dalsie raw status bity `st2` az `st5`
+- dalsie raw status bity `st3` az `st5`
 
 ### Informacie O Zariadeni
 
@@ -128,6 +129,7 @@ Pre kazdy verejny release:
 
 - realna IP a prihlasovacie udaje sa nesmu commitovat
 - lokalne raw zachyty maju ostat mimo Git
-- `tep4` a status bity `st2` az `st5` este potrebuju lepsie semanticke mapovanie
+- `status.xml st2` je teraz mapovany ako `heat_pump_running`
+- `tep4` a status bity `st3` az `st5` este potrebuju lepsie semanticke mapovanie
 - asset ikony je ulozeny v `assets/atw-mini-icon.svg`
 - ikonka v Home Assistant UI nie je ta ista ako obrazok v README a na nahradenie default placeholdera zvycajne treba Home Assistant branding assety
