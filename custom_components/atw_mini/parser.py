@@ -13,9 +13,27 @@ class AtwMiniParseError(Exception):
     """Raised when a payload cannot be parsed."""
 
 
-ST1_STATE_MAP: dict[str, str] = {
-    "1": "normal_operation",
+STATUS_OPERATION_STATE_MAP: dict[str, str] = {
+    "0": "hidden_off",
+    "1": "heating_mode",
+    "2": "cooling_mode",
+    "3": "off",
     "4": "defrost",
+    "5": "fault",
+}
+
+STATUS_HEATING_DELIVERY_STATE_MAP: dict[str, str] = {
+    "0": "hidden_off",
+    "1": "heating_via_hp",
+    "2": "heating_via_hp_plus_bivalent_stage_1",
+    "3": "heating_via_hp_plus_bivalent_stage_1_2",
+    "4": "summer_mode_dhw_only",
+}
+
+STATUS_DHW_HEATING_STATE_MAP: dict[str, str] = {
+    "0": "hidden_off",
+    "1": "dhw_heating_via_hp",
+    "2": "dhw_heating_via_electric_heater",
 }
 
 CONTROL_POWER_MAP: dict[str, bool] = {
@@ -264,9 +282,23 @@ def _parse_status_value(tag: str, raw_value: str, values: dict[str, Any]) -> Non
     if tag == "rtcc":
         values["device_time"] = raw_value
     elif tag == "st1":
-        values["operation_state"] = _parse_st1_state(raw_value)
+        values["operation_state"] = _parse_status_operation_state(raw_value)
     elif tag == "st2":
-        values["heat_pump_running"] = raw_value == "1"
+        values["heating_delivery_state"] = _parse_status_heating_delivery_state(raw_value)
+    elif tag == "st3":
+        values["dhw_heating_state"] = _parse_status_dhw_heating_state(raw_value)
+    elif tag == "st4":
+        values["time_setback_active"] = raw_value == "1"
+    elif tag == "st5":
+        values["hdo_blocking_active"] = raw_value == "1"
+    elif tag == "tep4":
+        values["dhw_temperature"] = _parse_temperature(raw_value)
+    elif tag == "tep5":
+        values["sensor_e_temperature"] = _parse_temperature(raw_value)
+    elif tag == "tep6":
+        values["sensor_f_temperature"] = _parse_temperature(raw_value)
+    elif tag == "tep7":
+        values["sensor_g_temperature"] = _parse_temperature(raw_value)
     elif tag.startswith("tep"):
         values[tag] = _parse_temperature(raw_value)
     elif tag == "pwr":
@@ -334,9 +366,19 @@ def _parse_percentage(value: str) -> int | None:
     return parsed
 
 
-def _parse_st1_state(value: str) -> str:
-    """Map st1 raw values to a stable operation state."""
-    return ST1_STATE_MAP.get(value, f"unknown_{value}")
+def _parse_status_operation_state(value: str) -> str:
+    """Map status st1 raw values to a stable operation state."""
+    return STATUS_OPERATION_STATE_MAP.get(value, f"unknown_{value}")
+
+
+def _parse_status_heating_delivery_state(value: str) -> str:
+    """Map status st2 raw values to the delivery state."""
+    return STATUS_HEATING_DELIVERY_STATE_MAP.get(value, f"unknown_{value}")
+
+
+def _parse_status_dhw_heating_state(value: str) -> str:
+    """Map status st3 raw values to the DHW heating state."""
+    return STATUS_DHW_HEATING_STATE_MAP.get(value, f"unknown_{value}")
 
 
 def _parse_float(value: str) -> float | None:

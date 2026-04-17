@@ -28,12 +28,14 @@ def test_parse_status_xml() -> None:
     assert status.values["device_time"] == "Pi  20:15:23  10.04.2026"
     assert status.values["tep2"] == 20.4
     assert status.values["tep3"] == 39.2
-    assert status.values["tep4"] == 0.0
+    assert status.values["dhw_temperature"] == 0.0
     assert status.values["tep8"] == 3.2
     assert status.values["power_level"] == 73
-    assert status.values["operation_state"] == "normal_operation"
-    assert status.values["heat_pump_running"] is True
-    assert status.values["status_3"] is False
+    assert status.values["operation_state"] == "heating_mode"
+    assert status.values["heating_delivery_state"] == "heating_via_hp"
+    assert status.values["dhw_heating_state"] == "hidden_off"
+    assert status.values["time_setback_active"] is False
+    assert status.values["hdo_blocking_active"] is False
 
 
 def test_parse_control_xml() -> None:
@@ -50,8 +52,9 @@ def test_merge_status_data() -> None:
     control_xml = Path("tests/fixtures/control.xml").read_text(encoding="utf-8")
     merged = merge_status_data(parse_status_xml(status_xml), parse_control_xml(control_xml))
 
-    assert merged.values["operation_state"] == "normal_operation"
-    assert merged.values["heat_pump_running"] is True
+    assert merged.values["operation_state"] == "heating_mode"
+    assert merged.values["heating_delivery_state"] == "heating_via_hp"
+    assert merged.values["dhw_heating_state"] == "hidden_off"
     assert merged.values["heat_pump_enabled"] is True
     assert merged.values["operation_mode"] == "heating"
     assert merged.values["season_mode"] == "winter"
@@ -106,8 +109,9 @@ def test_merge_all_sources() -> None:
         parse_parameters_html(parameters_html),
     )
 
-    assert merged.values["operation_state"] == "normal_operation"
-    assert merged.values["heat_pump_running"] is True
+    assert merged.values["operation_state"] == "heating_mode"
+    assert merged.values["heating_delivery_state"] == "heating_via_hp"
+    assert merged.values["dhw_heating_state"] == "hidden_off"
     assert merged.values["unit_type"] == "W32"
     assert merged.values["heating_curve_minus_20"] == 47.0
     assert merged.values["dhw_time_limit"] == 20

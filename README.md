@@ -11,7 +11,7 @@ For the Slovak version, see [README.sk.md](README.sk.md).
 This integration is already able to connect to the device over the local network and read multiple endpoints.
 
 Current plugin version:
-- `0.3.0`
+- `0.4.0`
 
 Current integration scope:
 - read-only
@@ -39,12 +39,29 @@ Authentication and transport:
 
 - indoor temperature
 - water target temperature
+- DHW temperature
+- sensor E temperature
+- sensor F temperature
+- sensor G temperature
 - outdoor temperature
-- `tep4` as an unknown temperature sensor
 - current power level in percent
 - operation state from `status.xml`
-  - `normal_operation`
+  - `hidden_off`
+  - `heating_mode`
+  - `cooling_mode`
+  - `off`
   - `defrost`
+  - `fault`
+- heating delivery state from `status.xml`
+  - `hidden_off`
+  - `heating_via_hp`
+  - `heating_via_hp_plus_bivalent_stage_1`
+  - `heating_via_hp_plus_bivalent_stage_1_2`
+  - `summer_mode_dhw_only`
+- DHW heating state from `status.xml`
+  - `hidden_off`
+  - `dhw_heating_via_hp`
+  - `dhw_heating_via_electric_heater`
 - operation mode from `control.xml`
   - `heating`
   - `cooling`
@@ -52,9 +69,9 @@ Authentication and transport:
   - `summer`
   - `winter`
 - heat pump enabled / disabled
-- heat pump running / not running
 - defrost binary state
-- additional raw status flags `st3` through `st5`
+- time setback active
+- HDO blocking active
 
 ### Device Info
 
@@ -130,8 +147,8 @@ For every public release:
 
 - real device IP addresses and credentials must never be committed
 - raw local captures can stay local and out of Git
-- `tep4` and status bits `st2` through `st5` still need better semantic mapping
-- `status.xml st2` is now mapped as `heat_pump_running`
-- `tep4` and status bits `st3` through `st5` still need better semantic mapping
+- `tep4` is now mapped as DHW temperature
+- `tep5`, `tep6`, and `tep7` are currently exposed as Sensor E/F/G until their exact names are clarified further
+- `status.xml st1` through `st5` are now mapped according to manufacturer documentation
 - the repository icon asset is stored in `assets/atw-mini-icon.svg`
 - the Home Assistant UI tile icon is separate from the README image and usually requires Home Assistant branding assets to replace the default placeholder

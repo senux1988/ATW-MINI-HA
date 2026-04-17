@@ -4,6 +4,19 @@ All notable changes to this project will be documented in this file.
 
 The project follows Semantic Versioning.
 
+## [0.4.0] - 2026-04-17
+
+### Added
+
+- Semantic mapping for `tep4` through `tep7`
+- Semantic enum mapping for `status.xml` states `st1` through `st3`
+- Semantic binary sensors for time setback and HDO blocking
+
+### Changed
+
+- `tep4` is now modeled as DHW temperature
+- `status.xml` states now follow the manufacturer documentation instead of generic placeholders
+
 ## [0.3.0] - 2026-04-12
 
 ### Added

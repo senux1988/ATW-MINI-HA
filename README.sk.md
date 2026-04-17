@@ -11,7 +11,7 @@ Anglicka verzia je v [README.md](README.md).
 Integracia sa uz vie lokalne pripojit na zariadenie a citat viacero endpointov.
 
 Aktualna verzia pluginu:
-- `0.3.0`
+- `0.4.0`
 
 Aktualny rozsah:
 - read-only
@@ -39,12 +39,29 @@ Komunikacia:
 
 - vnutorna teplota
 - cielova teplota vody
+- teplota TUV
+- teplota senzora E
+- teplota senzora F
+- teplota senzora G
 - vonkajsia teplota
-- `tep4` ako zatial neznamy teplotny senzor
 - aktualny vykon v percentach
 - operation state zo `status.xml`
-  - `normal_operation`
+  - `hidden_off`
+  - `heating_mode`
+  - `cooling_mode`
+  - `off`
   - `defrost`
+  - `fault`
+- heating delivery state zo `status.xml`
+  - `hidden_off`
+  - `heating_via_hp`
+  - `heating_via_hp_plus_bivalent_stage_1`
+  - `heating_via_hp_plus_bivalent_stage_1_2`
+  - `summer_mode_dhw_only`
+- DHW heating state zo `status.xml`
+  - `hidden_off`
+  - `dhw_heating_via_hp`
+  - `dhw_heating_via_electric_heater`
 - operation mode z `control.xml`
   - `heating`
   - `cooling`
@@ -52,9 +69,9 @@ Komunikacia:
   - `summer`
   - `winter`
 - zapnute / vypnute tepelne cerpadlo
-- realne bezi / nebezi tepelne cerpadlo
 - binary stav rozmrazovania
-- dalsie raw status bity `st3` az `st5`
+- aktivny casovy utlm
+- aktivne HDO / blokovanie vstupom ON2
 
 ### Informacie O Zariadeni
 
@@ -129,7 +146,8 @@ Pre kazdy verejny release:
 
 - realna IP a prihlasovacie udaje sa nesmu commitovat
 - lokalne raw zachyty maju ostat mimo Git
-- `status.xml st2` je teraz mapovany ako `heat_pump_running`
-- `tep4` a status bity `st3` az `st5` este potrebuju lepsie semanticke mapovanie
+- `tep4` je teraz mapovany ako teplota TUV
+- `tep5`, `tep6` a `tep7` su zatial vystavene ako senzory E/F/G, kym nebudu potvrdene presnejsie nazvy
+- `status.xml st1` az `st5` su teraz mapovane podla podkladov od vyrobcu
 - asset ikony je ulozeny v `assets/atw-mini-icon.svg`
 - ikonka v Home Assistant UI nie je ta ista ako obrazok v README a na nahradenie default placeholdera zvycajne treba Home Assistant branding assety

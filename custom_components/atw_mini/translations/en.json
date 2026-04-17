@@ -39,8 +39,17 @@
       "water_target_temperature": {
         "name": "Water target temperature"
       },
-      "temperature_4": {
-        "name": "Temperature 4"
+      "dhw_temperature": {
+        "name": "DHW temperature"
+      },
+      "sensor_e_temperature": {
+        "name": "Sensor E temperature"
+      },
+      "sensor_f_temperature": {
+        "name": "Sensor F temperature"
+      },
+      "sensor_g_temperature": {
+        "name": "Sensor G temperature"
       },
       "outdoor_temperature": {
         "name": "Outdoor temperature"
@@ -51,8 +60,30 @@
       "operation_state": {
         "name": "Operation state",
         "state": {
-          "normal_operation": "Normal operation",
-          "defrost": "Defrost"
+          "hidden_off": "Hidden / off",
+          "heating_mode": "Heating mode",
+          "cooling_mode": "Cooling mode",
+          "off": "Off",
+          "defrost": "Defrost",
+          "fault": "Fault"
+        }
+      },
+      "heating_delivery_state": {
+        "name": "Heating delivery state",
+        "state": {
+          "hidden_off": "Hidden / off",
+          "heating_via_hp": "Heating via heat pump",
+          "heating_via_hp_plus_bivalent_stage_1": "Heating via heat pump + bivalent stage 1",
+          "heating_via_hp_plus_bivalent_stage_1_2": "Heating via heat pump + bivalent stages 1 and 2",
+          "summer_mode_dhw_only": "Summer mode (DHW only)"
+        }
+      },
+      "dhw_heating_state": {
+        "name": "DHW heating state",
+        "state": {
+          "hidden_off": "Hidden / off",
+          "dhw_heating_via_hp": "DHW heating via heat pump",
+          "dhw_heating_via_electric_heater": "DHW heating via electric heater"
         }
       },
       "operation_mode": {
@@ -77,20 +108,14 @@
       "heat_pump_enabled": {
         "name": "Heat pump enabled"
       },
-      "heat_pump_running": {
-        "name": "Heat pump running"
-      },
       "defrost": {
         "name": "Defrost"
       },
-      "status_3": {
-        "name": "Status 3"
+      "time_setback_active": {
+        "name": "Time setback active"
       },
-      "status_4": {
-        "name": "Status 4"
-      },
-      "status_5": {
-        "name": "Status 5"
+      "hdo_blocking_active": {
+        "name": "HDO blocking active"
       }
     }
   }
