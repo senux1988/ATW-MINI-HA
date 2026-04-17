@@ -108,6 +108,9 @@
       "heat_pump_enabled": {
         "name": "Heat pump enabled"
       },
+      "heat_pump_running": {
+        "name": "Heat pump running"
+      },
       "defrost": {
         "name": "Defrost"
       },

@@ -16,6 +16,7 @@ The project follows Semantic Versioning.
 
 - `tep4` is now modeled as DHW temperature
 - `status.xml` states now follow the manufacturer documentation instead of generic placeholders
+- `heat_pump_running` was reintroduced as a derived binary state based on `status.xml st2 != 0`
 
 ## [0.3.0] - 2026-04-12
 

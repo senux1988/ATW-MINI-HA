@@ -69,6 +69,7 @@ Authentication and transport:
   - `summer`
   - `winter`
 - heat pump enabled / disabled
+- heat pump running / not running
 - defrost binary state
 - time setback active
 - HDO blocking active
@@ -150,5 +151,6 @@ For every public release:
 - `tep4` is now mapped as DHW temperature
 - `tep5`, `tep6`, and `tep7` are currently exposed as Sensor E/F/G until their exact names are clarified further
 - `status.xml st1` through `st5` are now mapped according to manufacturer documentation
+- `heat_pump_running` is exposed as a simple derived binary state where `status.xml st2 != 0`
 - the repository icon asset is stored in `assets/atw-mini-icon.svg`
 - the Home Assistant UI tile icon is separate from the README image and usually requires Home Assistant branding assets to replace the default placeholder

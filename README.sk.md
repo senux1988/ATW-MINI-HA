@@ -69,6 +69,7 @@ Komunikacia:
   - `summer`
   - `winter`
 - zapnute / vypnute tepelne cerpadlo
+- realne bezi / nebezi tepelne cerpadlo
 - binary stav rozmrazovania
 - aktivny casovy utlm
 - aktivne HDO / blokovanie vstupom ON2
@@ -149,5 +150,6 @@ Pre kazdy verejny release:
 - `tep4` je teraz mapovany ako teplota TUV
 - `tep5`, `tep6` a `tep7` su zatial vystavene ako senzory E/F/G, kym nebudu potvrdene presnejsie nazvy
 - `status.xml st1` az `st5` su teraz mapovane podla podkladov od vyrobcu
+- `heat_pump_running` je vystaveny ako jednoduchy odvodeny binary stav, kde plati `status.xml st2 != 0`
 - asset ikony je ulozeny v `assets/atw-mini-icon.svg`
 - ikonka v Home Assistant UI nie je ta ista ako obrazok v README a na nahradenie default placeholdera zvycajne treba Home Assistant branding assety

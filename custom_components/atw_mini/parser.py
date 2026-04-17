@@ -284,6 +284,7 @@ def _parse_status_value(tag: str, raw_value: str, values: dict[str, Any]) -> Non
     elif tag == "st1":
         values["operation_state"] = _parse_status_operation_state(raw_value)
     elif tag == "st2":
+        values["heat_pump_running"] = raw_value != "0"
         values["heating_delivery_state"] = _parse_status_heating_delivery_state(raw_value)
     elif tag == "st3":
         values["dhw_heating_state"] = _parse_status_dhw_heating_state(raw_value)
